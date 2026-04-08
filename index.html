@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bloom Scholar Group | The Strategic Scholar Institute</title>
+  <link href="https://fonts.googleapis.com/css2?family=Athena&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --lemon: #ebe94d;
+      --grass: #379d18;
+      --pink: #f12e9d;
+      --deep: #1f1f1f;
+      --cream: #fffdf5;
+      --white: #ffffff;
+      --soft-green: #eaf6e5;
+      --soft-pink: #fdeef6;
+      --gray: #666666;
+      --light-gray: #f6f6f6;
+      --border: #e7e7e7;
+      --shadow: 0 10px 30px rgba(0,0,0,0.08);
+      --radius: 18px;
+      --max: 1200px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Athena", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      color: var(--deep);
+      background: var(--cream);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(92%, var(--max));
+      margin: 0 auto;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 24px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: 0.25s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--pink);
+      color: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      opacity: 0.95;
+    }
+
+    .btn-secondary {
+      background: var(--grass);
+      color: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+      opacity: 0.95;
+    }
+
+    .btn-light {
+      background: var(--lemon);
+      color: var(--deep);
+      box-shadow: var(--shadow);
+    }
+
+    .btn-light:hover {
+      transform: translateY(-2px);
+      opacity: 0.95;
+    }
+
+    .section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.15;
+      margin-bottom: 18px;
+    }
+
+    .section-subtitle {
+      font-size: 1.08rem;
+      color: var(--gray);
+      max-width: 760px;
+      margin-bottom: 40px;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 253, 245, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      gap: 20px;
+    }
+
+    .logo {
+      line-height: 1.2;
+    }
+
+    .logo-main {
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+
+    .logo-main .bloom {
+      color: var(--pink);
+    }
+
+    .logo-main .scholar {
+      color: var(--grass);
+    }
+
+    .logo-program {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--deep);
+      letter-spacing: 0.3px;
+      margin-top: 1px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-weight: 600;
+      color: var(--deep);
+    }
+
+    .nav-links a:hover {
+      color: var(--pink);
+    }
+
+    /* Hero */
+    .hero {
+      background:
+        radial-gradient(circle at top left, rgba(235,233,77,0.4), transparent 30%),
+        radial-gradient(circle at top right, rgba(241,46,157,0.16), transparent 30%),
+        linear-gradient(180deg, #fffef8 0%, #fffdf5 100%);
+      padding: 90px 0 70px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 42px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: var(--lemon);
+      color: var(--deep);
+      font-weight: 800;
+      border-radius: 999px;
+      padding: 8px 14px;
+      margin-bottom: 18px;
+      font-size: 0.92rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.8rem, 3.5vw, 3rem);
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--gray);
+      margin-bottom: 26px;
+      max-width: 640px;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 26px;
+    }
+
+    .mini-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .mini-points span {
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .hero-card {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 30px;
+      box-shadow: var(--shadow);
+      border: 3px solid var(--lemon);
+    }
+
+    .hero-card h3 {
+      margin-bottom: 14px;
+      font-size: 1.5rem;
+      color: var(--grass);
+    }
+
+    .hero-card ul {
+      list-style: none;
+      display: grid;
+      gap: 14px;
+      margin: 18px 0 24px;
+    }
+
+    .hero-card li {
+      padding-left: 28px;
+      position: relative;
+    }
+
+    .hero-card li::before {
+      content: "\2726";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--pink);
+      font-weight: bold;
+    }
+
+    /* Stats */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 34px;
+    }
+
+    .stat-box {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+      border-top: 6px solid var(--grass);
+      text-align: center;
+    }
+
+    .stat-box:nth-child(2) {
+      border-top-color: var(--pink);
+    }
+
+    .stat-box:nth-child(3) {
+      border-top-color: var(--lemon);
+    }
+
+    .stat-box:nth-child(4) {
+      border-top-color: var(--grass);
+    }
+
+    .stat-box h3 {
+      font-size: 1.8rem;
+      margin-bottom: 6px;
+    }
+
+    .stat-box p {
+      color: var(--gray);
+      font-weight: 600;
+    }
+
+    /* ========== FLIP CARDS ========== */
+    .flip-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .flip-card {
+      perspective: 1000px;
+      height: 320px;
+      cursor: pointer;
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      transform-style: preserve-3d;
+    }
+
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-card-front,
+    .flip-card-back {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      border-radius: var(--radius);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-shadow: var(--shadow);
+    }
+
+    .flip-card-front {
+      background: var(--white);
+      border: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .flip-card-front .flip-icon {
+      font-size: 2.8rem;
+      margin-bottom: 16px;
+    }
+
+    .flip-card-front h3 {
+      color: var(--pink);
+      font-size: 1.25rem;
+      margin-bottom: 10px;
+    }
+
+    .flip-card-front p {
+      color: var(--gray);
+      font-size: 0.92rem;
+    }
+
+    .flip-card-front .flip-hint {
+      margin-top: auto;
+      padding-top: 14px;
+      font-size: 0.8rem;
+      color: var(--pink);
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .flip-card-back {
+      background: var(--deep);
+      color: var(--white);
+      transform: rotateY(180deg);
+      padding: 26px;
+    }
+
+    .flip-card-back h4 {
+      color: var(--lemon);
+      margin-bottom: 14px;
+      font-size: 1.1rem;
+    }
+
+    .flip-card-back ul {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .flip-card-back li {
+      padding-left: 22px;
+      position: relative;
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+
+    .flip-card-back li::before {
+      content: "\2713";
+      position: absolute;
+      left: 0;
+      color: var(--lemon);
+      font-weight: 800;
+    }
+
+    /* Regular Cards */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    .card h3 {
+      margin-bottom: 12px;
+      color: var(--pink);
+      font-size: 1.25rem;
+    }
+
+    .card p {
+      color: var(--gray);
+    }
+
+    /* Program */
+    .program-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+
+    .program-box {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .program-box h3 {
+      margin-bottom: 16px;
+      color: var(--grass);
+      font-size: 1.35rem;
+    }
+
+    .program-box ul {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .program-box li {
+      position: relative;
+      padding-left: 28px;
+    }
+
+    .program-box li::before {
+      content: "\2713";
+      position: absolute;
+      left: 0;
+      color: var(--pink);
+      font-weight: 800;
+    }
+
+    /* Video */
+    .video-wrap {
+      background: linear-gradient(135deg, var(--soft-green), var(--soft-pink));
+      border-radius: 28px;
+      padding: 36px;
+      box-shadow: var(--shadow);
+    }
+
+    .video-frame {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      margin-top: 20px;
+      background: #000;
+    }
+
+    .video-frame iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .about-photo {
+      background: linear-gradient(135deg, var(--lemon), var(--pink));
+      border-radius: 28px;
+      min-height: 380px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 1.2rem;
+      font-weight: 700;
+      text-align: center;
+      padding: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .about-box {
+      background: var(--white);
+      border-radius: 28px;
+      padding: 34px;
+      box-shadow: var(--shadow);
+    }
+
+    .about-box h3 {
+      color: var(--pink);
+      margin-bottom: 16px;
+      font-size: 1.5rem;
+    }
+
+    .about-box p {
+      margin-bottom: 16px;
+      color: var(--gray);
+    }
+
+    /* Lead Magnet */
+    .lead-magnet {
+      background: linear-gradient(135deg, var(--deep) 0%, #2a2a2a 100%);
+      border-radius: 28px;
+      padding: 44px;
+      box-shadow: var(--shadow);
+      color: var(--white);
+      text-align: center;
+    }
+
+    .lead-magnet h2 {
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      margin-bottom: 14px;
+      color: var(--lemon);
+    }
+
+    .lead-magnet p {
+      color: rgba(255,255,255,0.8);
+      max-width: 640px;
+      margin: 0 auto 28px;
+      font-size: 1.05rem;
+    }
+
+    .lead-magnet .email-form {
+      display: flex;
+      gap: 12px;
+      max-width: 520px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .lead-magnet input[type="email"] {
+      flex: 1;
+      min-width: 240px;
+      padding: 14px 20px;
+      border-radius: 999px;
+      border: 2px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.1);
+      color: var(--white);
+      font-size: 1rem;
+      outline: none;
+    }
+
+    .lead-magnet input[type="email"]::placeholder {
+      color: rgba(255,255,255,0.5);
+    }
+
+    .lead-magnet input[type="email"]:focus {
+      border-color: var(--lemon);
+    }
+
+    /* CTA blocks */
+    .cta-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .cta-box {
+      border-radius: 28px;
+      padding: 34px;
+      box-shadow: var(--shadow);
+      color: var(--deep);
+    }
+
+    .cta-box h3 {
+      font-size: 1.6rem;
+      margin-bottom: 14px;
+    }
+
+    .cta-box p {
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .calendly-box {
+      background: linear-gradient(135deg, var(--lemon), #fff6ab);
+    }
+
+    .pay-box {
+      background: linear-gradient(135deg, var(--pink), #ff8fbc);
+      color: var(--white);
+    }
+
+    .pay-box p,
+    .pay-box h3 {
+      color: var(--white);
+    }
+
+    .embed-placeholder {
+      margin-top: 20px;
+      background: rgba(255,255,255,0.8);
+      border: 2px dashed rgba(0,0,0,0.18);
+      border-radius: 18px;
+      padding: 26px;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .pay-box .embed-placeholder {
+      background: rgba(255,255,255,0.18);
+      border: 2px dashed rgba(255,255,255,0.55);
+      color: var(--white);
+    }
+
+    /* FAQ */
+    .faq-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    details {
+      background: var(--white);
+      border-radius: 18px;
+      padding: 20px 22px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 800;
+      color: var(--grass);
+      list-style: none;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details p {
+      margin-top: 14px;
+      color: var(--gray);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--deep);
+      color: var(--white);
+      padding: 34px 0;
+      margin-top: 30px;
+    }
+
+    .footer-wrap {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .footer-wrap p {
+      opacity: 0.9;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--lemon);
+      font-weight: 700;
+    }
+
+    /* Responsive */
+    @media (max-width: 980px) {
+      .hero-grid,
+      .program-wrap,
+      .about-grid,
+      .cta-split {
+        grid-template-columns: 1fr;
+      }
+
+      .stats,
+      .card-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .flip-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .stats,
+      .card-grid,
+      .flip-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .flip-card {
+        height: 280px;
+      }
+
+      .hero {
+        padding-top: 60px;
+      }
+
+      .section {
+        padding: 60px 0;
+      }
+
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <div class="logo-main">
+          <span class="bloom">Bloom</span> <span class="scholar">Scholar Group</span>
+        </div>
+        <div class="logo-program">The Strategic Scholar Institute</div>
+      </div>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#program">Program</a>
+        <a href="#video">Video</a>
+        <a href="#book">Book a Call</a>
+        <a href="#faq">FAQ</a>
+        <a href="#pay" class="btn btn-primary">Enroll Now</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow">Scholar Self-Mapping Framework</span>
+          <h1>Your kid has potential. Let's turn it into a plan.</h1>
+          <p>
+            Real talk &mdash; most high schoolers are out here picking colleges off vibes and majors off TikTok. Scholar Self-Mapping is the deep-dive discovery process that actually connects who your child is to where they should be headed. Personality. Career. College. SAT. All of it, mapped out.
+          </p>
+
+          <div class="hero-cta">
+            <a href="#book" class="btn btn-primary">Let's Talk &mdash; Book a Call</a>
+            <a href="#pay" class="btn btn-secondary">Save Their Spot</a>
+          </div>
+
+          <div class="mini-points">
+            <span>Personality mapping</span>
+            <span>High school success</span>
+            <span>College strategy</span>
+            <span>Career clarity</span>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <h3>Here's what your student actually walks away with</h3>
+          <ul>
+            <li>A full personality deep-dive &mdash; not a quiz, an excavation of who they really are</li>
+            <li>Career paths that match their wiring, not just what looks good on paper</li>
+            <li>[Add later]</li>
+            <li>[Add later]</li>
+          </ul>
+          <a href="#program" class="btn btn-light">See the Full Breakdown</a>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat-box">
+          <h3>Map</h3>
+          <p>Know who they are</p>
+        </div>
+        <div class="stat-box">
+          <h3>Succeed</h3>
+          <p>Win in high school</p>
+        </div>
+        <div class="stat-box">
+          <h3>Plan</h3>
+          <p>College strategy</p>
+        </div>
+        <div class="stat-box">
+          <h3>Align</h3>
+          <p>Career clarity</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== FLIP CARDS: The 4 Pillars ====== -->
+  <section class="section" id="program">
+    <div class="container">
+      <h2 class="section-title">This isn't tutoring. It's a whole strategy.</h2>
+      <p class="section-subtitle">
+        Hover over each pillar to see exactly what goes down. We're not doing surface-level anything &mdash; this is the real work that changes the trajectory.
+      </p>
+
+      <div class="flip-grid">
+
+        <!-- Card 1: Personality Mapping -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="flip-icon">&#129504;</div>
+              <h3>Personality Mapping</h3>
+              <p>The Excavation &mdash; we go way deeper than "what are you interested in?"</p>
+              <div class="flip-hint">HOVER TO EXPLORE &rarr;</div>
+            </div>
+            <div class="flip-card-back">
+              <h4>Here's what happens</h4>
+              <ul>
+                <li>Deep analysis of their traits, talents, and natural wiring</li>
+                <li>Uncover how they actually learn, what drives them, and what drains them</li>
+                <li>Build the foundation every other decision gets built on</li>
+                <li>Guided debrief that connects the dots to real-world paths</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: High School Success Plan -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="flip-icon">&#127942;</div>
+              <h3>High School Success Plan</h3>
+              <p>The Game Plan &mdash; stop surviving high school and start winning it.</p>
+              <div class="flip-hint">HOVER TO EXPLORE &rarr;</div>
+            </div>
+            <div class="flip-card-back">
+              <h4>Here's what happens</h4>
+              <ul>
+                <li>Tactical SAT Reading + Writing strategies (not just "do more practice tests")</li>
+                <li>Diagnostic assessment + personalized study roadmap</li>
+                <li>GPA strategy, course selection, and extracurricular alignment</li>
+                <li>Build the habits and systems that make the rest of high school click</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: College Strategy -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="flip-icon">&#127891;</div>
+              <h3>College Strategy</h3>
+              <p>The Blueprint &mdash; because "just apply everywhere" is not a plan.</p>
+              <div class="flip-hint">HOVER TO EXPLORE &rarr;</div>
+            </div>
+            <div class="flip-card-back">
+              <h4>Here's what happens</h4>
+              <ul>
+                <li>Find colleges that fit their major AND their personality</li>
+                <li>Identify summer programs tailored to their grade level</li>
+                <li>Uncover scholarships they actually qualify for</li>
+                <li>Build an application timeline so nothing gets missed</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4: Career Clarity -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="flip-icon">&#127919;</div>
+              <h3>Career Clarity</h3>
+              <p>The Fit &mdash; finding their lane before they commit to a major they'll change three times.</p>
+              <div class="flip-hint">HOVER TO EXPLORE &rarr;</div>
+            </div>
+            <div class="flip-card-back">
+              <h4>Here's what happens</h4>
+              <ul>
+                <li>Explore careers that actually match their personality map</li>
+                <li>Connect those careers to specific college majors</li>
+                <li>Find volunteer gigs and activities to test-drive the path first</li>
+                <li>Get clarity before they lock in a direction</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== Program Details ====== -->
+  <section class="section">
+    <div class="container">
+      <div class="program-wrap">
+        <div class="program-box">
+          <h3>Everything that's included</h3>
+          <ul>
+            <li>Full personality + strengths profiling with a guided debrief</li>
+            <li>Career pathway mapping based on who they actually are</li>
+            <li>College search + major exploration workshops</li>
+            <li>Scholarship and summer program identification</li>
+            <li>Application timeline + essay brainstorming sessions</li>
+            <li>SAT diagnostic and personalized study roadmap</li>
+            <li>Weekly SAT prep sessions (Reading + Writing focus)</li>
+            <li>Small-group accountability &mdash; no one's getting lost in the shuffle</li>
+          </ul>
+        </div>
+
+        <div class="program-box">
+          <h3>The details</h3>
+          <ul>
+            <li><strong>Dates:</strong> [Insert summer dates]</li>
+            <li><strong>Format:</strong> [Virtual / In person / Hybrid]</li>
+            <li><strong>Who it's for:</strong> Rising sophomores, juniors, and seniors</li>
+            <li><strong>Cohort size:</strong> [Insert number of seats]</li>
+            <li><strong>Investment:</strong> [Insert price]</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== Video ====== -->
+  <section class="section" id="video">
+    <div class="container">
+      <div class="video-wrap">
+        <h2 class="section-title">See what this actually looks like</h2>
+        <p class="section-subtitle">
+          Watch how Scholar Self-Mapping connects personality, career, college, and SAT strategy into one clear path. No fluff, just the framework.
+        </p>
+
+        <div class="video-frame">
+          <iframe
+            src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+            title="Program Overview Video"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== About ====== -->
+  <section class="section" id="about">
+    <div class="container">
+      <h2 class="section-title">The person behind the program</h2>
+      <p class="section-subtitle">
+        You're not just signing up for a curriculum. You're trusting someone with your kid's future. Here's who that someone is.
+      </p>
+
+      <div class="about-grid">
+        <div class="about-photo">
+          Add your professional photo here
+        </div>
+
+        <div class="about-box">
+          <h3>Hi, I'm [Your Name]</h3>
+          <p>
+            I built The Strategic Scholar Institute because I kept seeing the same thing &mdash; smart, capable students showing up to college with zero clarity about who they are or why they chose their major. They had the grades. They had the scores. But nobody ever helped them connect the dots.
+          </p>
+          <p>
+            Scholar Self-Mapping is the framework I created to fix that. We start with the personality work first &mdash; the real stuff, not a BuzzFeed quiz &mdash; then build the career, college, and SAT strategy on top of it. Every piece connects. Nothing is random.
+          </p>
+          <p>
+            I've spent years in education and student development, and I can tell you this: the students who win long-term are the ones who know themselves first. That's what we do here.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== Why Families Choose ====== -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Why parents are choosing this over traditional prep</h2>
+      <p class="section-subtitle">
+        Because you already know your kid is capable. What they need isn't more homework &mdash; it's a strategy that actually makes sense.
+      </p>
+
+      <div class="card-grid">
+        <div class="card">
+          <h3>Personality first, always</h3>
+          <p>
+            We don't start with test scores or college rankings. We start with your student. Who they are drives every recommendation, every plan, every next step.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Career before college</h3>
+          <p>
+            Picking a college without knowing the career direction is like buying a plane ticket with no destination. We map the career first, then find the schools that get them there.
+          </p>
+        </div>
+        <div class="card">
+          <h3>SAT strategy, not just grind</h3>
+          <p>
+            Your kid doesn't need 200 more practice problems. They need tactical approaches to Reading and Writing that make their scores match what their brain can actually do.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== Lead Magnet / Freemium ====== -->
+  <section class="section">
+    <div class="container">
+      <div class="lead-magnet">
+        <h2>5 Critical Things Your High Schooler Doesn't Know (But You Can Help Them Discover)</h2>
+        <p>
+          A free video series that exposes the gaps in typical high school counseling &mdash; and shows you exactly how to help your student get ahead of it. No sales pitch, just real insight you can use right now.
+        </p>
+        <div class="email-form">
+          <input type="email" placeholder="Your best email" />
+          <button class="btn btn-light">Send Me the Series</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== Book / Pay ====== -->
+  <section class="section" id="book">
+    <div class="container">
+      <div class="cta-split">
+        <div class="cta-box calendly-box">
+          <h3>Let's hop on a quick call</h3>
+          <p>
+            Got questions? Want to make sure this is the right move for your student? That's exactly what this call is for. No pressure, just a real conversation about where your kid is and where they could be.
+          </p>
+          <a href="[INSERT CALENDLY LINK]" class="btn btn-primary" target="_blank">Book a Call</a>
+
+          <div class="embed-placeholder">
+            Or paste your Calendly embed code here
+            <br><br>
+            Example: Calendly inline widget
+          </div>
+        </div>
+
+        <div class="cta-box pay-box" id="pay">
+          <h3>Ready? Let's lock it in.</h3>
+          <p>
+            Spots are limited on purpose &mdash; small groups mean your student actually gets seen. Don't wait until it fills up.
+          </p>
+          <a href="[INSERT PAYMENT LINK]" class="btn btn-light" target="_blank">Reserve Their Spot</a>
+
+          <div class="embed-placeholder">
+            Or place your payment button here
+            <br><br>
+            Example: Stripe, PayPal, Square, or checkout embed
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== FAQ ====== -->
+  <section class="section" id="faq">
+    <div class="container">
+      <h2 class="section-title">You've got questions. We've got answers.</h2>
+      <p class="section-subtitle">
+        Here's what other parents asked before they enrolled their students.
+      </p>
+
+      <div class="faq-list">
+        <details>
+          <summary>Who is this actually for?</summary>
+          <p>
+            Rising sophomores, juniors, and seniors who are smart and capable but need more than just "study harder" advice. If your student is going through the motions without a real plan, or they're stressed about college without knowing why &mdash; this is for them.
+          </p>
+        </details>
+
+        <details>
+          <summary>What is Scholar Self-Mapping?</summary>
+          <p>
+            It's our core framework. Think of it like this: we excavate who your student really is (personality), match that to careers and majors that make sense, build a strategic college plan with scholarship opportunities baked in, and top it off with SAT prep that's actually tactical. Every piece builds on the one before it. Nothing is random.
+          </p>
+        </details>
+
+        <details>
+          <summary>How is this different from regular SAT tutoring?</summary>
+          <p>
+            Most tutoring centers just throw practice tests at your kid and hope for the best. We teach strategy &mdash; actual tactical approaches to Reading and Writing that change how they attack the test. Plus, the SAT work is connected to the bigger picture of who they are and where they're headed, so they stay motivated instead of burned out.
+          </p>
+        </details>
+
+        <details>
+          <summary>What's the deal with the personality profiles?</summary>
+          <p>
+            We're not talking about a 5-minute online quiz. Students go through guided assessments that reveal how they learn, what lights them up, what drains them, and where their natural strengths actually are. Then we use that data to drive everything else &mdash; career direction, college fit, even how they study for the SAT.
+          </p>
+        </details>
+
+        <details>
+          <summary>My kid already knows what they want to do. Do they still need this?</summary>
+          <p>
+            Honestly? Yes. Students who already have a direction get even more out of this because we validate that choice with real data, sharpen their SAT scores, and build a strategic application plan around it. And if they're wrong about the direction? Better to figure that out now than sophomore year of college.
+          </p>
+        </details>
+
+        <details>
+          <summary>What does my student actually walk away with?</summary>
+          <p>
+            Their full personality profile and debrief, a career pathway map, a curated college list with scholarship and summer program recommendations, an application timeline, essay topic ideas, a personalized SAT study plan, and a framework they can keep using. This isn't a one-and-done workshop &mdash; it's a toolkit for the whole journey.
+          </p>
+        </details>
+
+        <details>
+          <summary>How long does the program run?</summary>
+          <p>
+            [Insert your exact timeline here. For example: "The Institute runs for 6 weeks with weekly live sessions, SAT practice work, and guided activities between meetings."]
+          </p>
+        </details>
+
+        <details>
+          <summary>Can we do a payment plan?</summary>
+          <p>
+            [Insert your policy here. For example: "Yes, we have flexible payment options. Book a call and we'll figure out what works for your family."]
+          </p>
+        </details>
+
+        <details>
+          <summary>How do I know if this is right for my kid?</summary>
+          <p>
+            Book the call. Seriously, that's the move. It's a no-pressure conversation where we talk about where your student is right now and whether Scholar Self-Mapping is the right fit. If it's not, we'll tell you. No weird sales energy.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== Final CTA ====== -->
+  <section class="section">
+    <div class="container">
+      <div class="video-wrap">
+        <h2 class="section-title">This is the summer that changes everything</h2>
+        <p class="section-subtitle">
+          Your student doesn't need another "keep busy" summer. They need clarity, direction, and a plan that actually works. Scholar Self-Mapping gives them all three &mdash; plus SAT scores that match their potential. Let's go.
+        </p>
+        <div class="hero-cta">
+          <a href="#book" class="btn btn-primary">Book the Call</a>
+          <a href="#pay" class="btn btn-secondary">Save Their Spot</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-wrap">
+      <p>&copy; 2026 Bloom Scholar Group. The Strategic Scholar Institute. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#">Email</a>
+        <a href="#">Instagram</a>
+        <a href="#">Terms</a>
+        <a href="#">Privacy</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
